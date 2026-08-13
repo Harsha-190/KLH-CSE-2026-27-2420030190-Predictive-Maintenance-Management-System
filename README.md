@@ -96,7 +96,7 @@ git clone <repository-url>
 ### 2. Navigate to the Project Directory
 
 ```bash
-cd AI-Powered-Sprint-Retrospective-Analysis-System
+cd Predictive-Maintenance-Management-System
 ```
 
 ### 3. Create a Virtual Environment
@@ -185,12 +185,14 @@ http://127.0.0.1:5000
 
 ## Future Enhancements
 
-* Advanced AI-generated recommendations
-* Sprint performance trend analysis
-* Automatic retrospective report generation
-* Team productivity analysis
-* Integration with project management platforms
-* Real-time sprint monitoring
+* Real-Time IoT Integration – Connect IoT sensors to continuously collect temperature, vibration, pressure, and other machine data.
+* Advanced Machine Learning Models – Implement algorithms such as Random Forest, XGBoost, LSTM, and other deep learning models to improve prediction accuracy.
+* Real-Time Failure Alerts – Send notifications through email, SMS, or mobile applications when a high failure risk is detected.
+* Remaining Useful Life (RUL) Prediction – Predict how long equipment can continue operating before maintenance is required.
+* Mobile Application – Develop an Android/iOS application so maintenance staff can monitor equipment remotely.
+* Automated Maintenance Scheduling – Automatically schedule maintenance based on predicted failure probability and equipment condition.
+* Cloud Deployment – Deploy the system on platforms such as AWS, Azure, or Google Cloud for remote access and scalability.
+* Advanced Analytics Dashboard – Add interactive dashboards with real-time charts, equipment health scores, failure trends, and maintenance KPIs.
 
 ---
 
