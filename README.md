@@ -2,12 +2,12 @@
 
 ## Team Members
 
-| Name            | ID Number   |
-| --------------- | ----------- |
-| Sanjay Vainala  | 2420030385  |
-| N Karthik       | 2420030511  |
-| G Anirudh       | 2420030758  |
-| P Rithish Rao   | 2420030778  |
+| Name                 | ID Number   |
+| ---------------------| ----------- |
+| Sandeep              | 2420030220  |
+| Sai Sri Harsha       | 2420030190  |
+| Pardha Pranav        | 2420030543  |
+| Mohit Nandan Reddy   | 2420030216  |
 
 ## Supervisor
 
@@ -15,45 +15,43 @@
 
 ---
 
-## Abstract
-
-The abstract of the project is provided as a separate PDF document.
-
-**[View Abstract](docs/ASE-projectabstract.pdf)**
-
----
 
 ## Project Description
 
-The **AI-Powered Sprint Retrospective Analysis System** is a software system designed to analyze sprint performance and team feedback using Artificial Intelligence and Natural Language Processing (NLP). The system allows team members to submit feedback about completed sprints, including achievements, challenges, workload, and areas for improvement.
+The Predictive Maintenance Management System is a software application that uses data analysis and machine learning to predict possible equipment failures before they occur. The system collects historical maintenance records and equipment data such as temperature, vibration, operating hours, pressure, and machine usage. This data is processed and analyzed to identify patterns that indicate potential equipment problems.
 
-The system analyzes the collected feedback to identify common issues, determine sentiment, summarize sprint performance, and generate actionable recommendations for future sprints. The project aims to reduce the effort required for manual sprint retrospective analysis and help development teams make data-driven decisions for continuous improvement.
+The system uses a machine learning model to predict whether equipment is likely to require maintenance. It can classify machines based on their maintenance condition and provide early warnings when a failure is likely to occur. A dashboard can be provided to display equipment status, maintenance history, predicted failures, and important performance indicators.
 
 ---
 
 ## Objectives
 
-* Collect and organize sprint retrospective feedback.
-* Analyze team feedback using NLP techniques.
-* Identify positive and negative aspects of a sprint.
-* Detect recurring problems and common issues.
-* Analyze the sentiment of team members' feedback.
-* Generate useful recommendations for future sprints.
-* Provide a simple dashboard for viewing analysis results.
-
+* To predict equipment failures before they occur using machine learning techniques.
+* To analyze equipment data such as temperature, vibration, pressure, operating hours, and maintenance history.
+* To identify early warning signs of potential machine failures.
+* To reduce unexpected equipment breakdowns and minimize machine downtime.
+* To reduce maintenance costs by performing maintenance when it is actually required.
+* To improve equipment reliability and lifespan through timely maintenance.
+* To provide a monitoring dashboard for viewing equipment status, maintenance history, and predicted failure risks.
+* To help maintenance teams make data-driven decisions instead of relying only on fixed maintenance schedules.
+* To maintain maintenance records and use historical data for future predictions.
+* To improve overall operational efficiency by ensuring equipment remains functional and productive.
 ---
 
 ## Key Features
 
-* Sprint feedback collection
-* Sentiment analysis
-* Identification of recurring issues
-* Sprint performance analysis
-* AI-based improvement recommendations
-* Feedback summary generation
-* Data visualization dashboard
-* Sprint-to-sprint comparison
-
+* Equipment Management – Add, update, and monitor information about machines and equipment.
+* Real-Time Monitoring – Track equipment parameters such as temperature, vibration, pressure, and operating hours.
+* Data Preprocessing – Handle missing values, remove duplicates, clean data, and transform data before analysis.
+* Failure Prediction – Use machine learning algorithms to predict whether equipment is likely to fail.
+* Maintenance Alerts – Generate alerts when the system detects a high risk of equipment failure.
+* Maintenance History – Store and display previous maintenance activities, repairs, and equipment failures.
+* Equipment Health Status – Display equipment conditions such as Healthy, Warning, or Critical.
+* Interactive Dashboard – Provide graphs, charts, and statistics for easy monitoring and analysis.
+* Risk Analysis – Calculate and display the potential failure risk of individual equipment.
+* Reports and Analytics – Generate useful reports about equipment performance, failures, and maintenance activities.
+* Machine Learning Model – Train and evaluate predictive models using historical equipment data.
+* Preventive Action Recommendations – Help maintenance teams decide when equipment should be inspected or serviced.
 ---
 
 ## Technology Stack
@@ -70,7 +68,7 @@ The system analyzes the collected feedback to identify common issues, determine 
 ## Project Structure
 
 ```text
-AI-Powered-Sprint-Retrospective-Analysis-System/
+Predictive-Maintenance-Management-System/
 │
 ├── README.md
 ├── Abstract.pdf
