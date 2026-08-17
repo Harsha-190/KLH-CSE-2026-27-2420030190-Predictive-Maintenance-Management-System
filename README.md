@@ -1,4 +1,4 @@
-# Predictive-Maintenance-Management-System
+# Predictive Maintenance Management System
 
 ## Team Members
 
