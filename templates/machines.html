@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Machines | Predictive Maintenance{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <p class="eyebrow">ASSET MANAGEMENT</p>
+    <h1>Machine Inventory</h1>
+    <p>Monitor the current status of registered equipment.</p>
+</section>
+
+<section class="panel">
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Machine</th>
+                    <th>Type</th>
+                    <th>Location</th>
+                    <th>Status</th>
+                    <th>Registered</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for machine in machines %}
+                <tr>
+                    <td>#{{ machine.id }}</td>
+                    <td><strong>{{ machine.name }}</strong></td>
+                    <td>{{ machine.machine_type }}</td>
+                    <td>{{ machine.location }}</td>
+                    <td><span class="status {{ machine.status|lower|replace(' ', '-') }}">{{ machine.status }}</span></td>
+                    <td>{{ machine.created_at }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

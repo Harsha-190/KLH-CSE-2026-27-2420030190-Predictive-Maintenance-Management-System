@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block title %}Dashboard | Predictive Maintenance{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div>
+        <p class="eyebrow">SMART INDUSTRIAL MONITORING</p>
+        <h1>Predictive Maintenance Management System</h1>
+        <p>Predict machine failure risk before it becomes an expensive breakdown.</p>
+    </div>
+    <div class="hero-badge">ML Powered</div>
+</section>
+
+<section class="stats">
+    <div class="stat-card">
+        <span>Total Machines</span>
+        <strong>{{ total }}</strong>
+    </div>
+    <div class="stat-card danger">
+        <span>High Risk Predictions</span>
+        <strong>{{ high }}</strong>
+    </div>
+    <div class="stat-card warning">
+        <span>Medium Risk Predictions</span>
+        <strong>{{ medium }}</strong>
+    </div>
+    <div class="stat-card success">
+        <span>Low Risk Predictions</span>
+        <strong>{{ low }}</strong>
+    </div>
+</section>
+
+<div class="grid two">
+    <section class="panel">
+        <div class="panel-title">
+            <div>
+                <h2>Predict Maintenance Risk</h2>
+                <p>Enter current machine sensor readings.</p>
+            </div>
+        </div>
+
+        <form id="predictionForm">
+            <div class="form-grid">
+                <label>
+                    Machine
+                    <select name="machine_id" required>
+                        <option value="">Select machine</option>
+                        {% for machine in machines %}
+                        <option value="{{ machine.id }}">{{ machine.name }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+
+                <label>
+                    Temperature (°C)
+                    <input type="number" name="temperature" min="0" step="0.1" placeholder="e.g. 82" required>
+                </label>
+
+                <label>
+                    Vibration (mm/s)
+                    <input type="number" name="vibration" min="0" step="0.1" placeholder="e.g. 5.2" required>
+                </label>
+
+                <label>
+                    Pressure (bar)
+                    <input type="number" name="pressure" min="0" step="0.1" placeholder="e.g. 5.0" required>
+                </label>
+
+                <label>
+                    Runtime Hours
+                    <input type="number" name="runtime_hours" min="0" step="1" placeholder="e.g. 8000" required>
+                </label>
+
+                <label>
+                    Machine Age (years)
+                    <input type="number" name="machine_age" min="0" step="0.1" placeholder="e.g. 7" required>
+                </label>
+
+                <label>
+                    Load Percentage
+                    <input type="number" name="load_percentage" min="0" max="100" step="0.1" placeholder="e.g. 75" required>
+                </label>
+            </div>
+
+            <button class="primary-btn" type="submit">Predict Maintenance Risk</button>
+        </form>
+
+        <div id="predictionResult" class="result hidden">
+            <div class="result-risk" id="riskText">--</div>
+            <div class="probability"><span id="probabilityText">0%</span> confidence</div>
+            <p id="recommendationText"></p>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="panel-title">
+            <div>
+                <h2>Risk Distribution</h2>
+                <p>Saved prediction history</p>
+            </div>
+        </div>
+        <div class="chart-wrap">
+            <canvas id="riskChart"></canvas>
+        </div>
+    </section>
+</div>
+
+<section class="panel">
+    <div class="panel-title">
+        <div>
+            <h2>Recent Predictions</h2>
+            <p>Latest machine health assessments</p>
+        </div>
+        <a class="secondary-btn" href="{{ url_for('maintenance') }}">View All</a>
+    </div>
+
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Machine</th>
+                    <th>Risk</th>
+                    <th>Probability</th>
+                    <th>Recommendation</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for log in logs %}
+                <tr>
+                    <td>{{ log.machine_name or 'Unassigned' }}</td>
+                    <td><span class="risk {{ log.prediction|lower }}">{{ log.prediction }}</span></td>
+                    <td>{{ "%.2f"|format(log.probability * 100) }}%</td>
+                    <td>{{ log.recommendation }}</td>
+                    <td>{{ log.created_at }}</td>
+                </tr>
+            {% else %}
+                <tr><td colspan="5" class="empty">No predictions yet. Use the form above.</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

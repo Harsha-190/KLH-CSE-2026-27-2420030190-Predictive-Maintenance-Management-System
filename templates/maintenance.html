@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Maintenance History | Predictive Maintenance{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <p class="eyebrow">PREDICTION HISTORY</p>
+    <h1>Maintenance Predictions</h1>
+    <p>Review sensor values, risk predictions and recommendations.</p>
+</section>
+
+<section class="panel">
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Machine</th>
+                    <th>Risk</th>
+                    <th>Confidence</th>
+                    <th>Temperature</th>
+                    <th>Vibration</th>
+                    <th>Pressure</th>
+                    <th>Runtime</th>
+                    <th>Load</th>
+                    <th>Recommendation</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for log in logs %}
+                <tr>
+                    <td>{{ log.machine_name or 'Unassigned' }}</td>
+                    <td><span class="risk {{ log.prediction|lower }}">{{ log.prediction }}</span></td>
+                    <td>{{ "%.2f"|format(log.probability * 100) }}%</td>
+                    <td>{{ log.temperature }} °C</td>
+                    <td>{{ log.vibration }}</td>
+                    <td>{{ log.pressure }}</td>
+                    <td>{{ log.runtime_hours }} h</td>
+                    <td>{{ log.load_percentage }}%</td>
+                    <td>{{ log.recommendation }}</td>
+                </tr>
+            {% else %}
+                <tr><td colspan="9" class="empty">No maintenance predictions recorded.</td></tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}
